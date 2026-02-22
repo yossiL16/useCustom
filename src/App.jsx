@@ -8,6 +8,7 @@ import useLocalStorageState from './hooks/useLocalStorageState'
 import sessionStorage1 from './hooks/sessionStorage'
 import usePrevious from './hooks/usePrevious'
 import useDebouncedValue from './hooks/useDebouncedValue'
+import useThrottleValue from './hooks/useThrottleValue'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   const {value7, setVal7, remove7} = sessionStorage1("yossi", 1)
   const { value8, previous8, previousValue,currentValue } = usePrevious()
   const {throttledValue, data} = useDebouncedValue()
+  const { throttled, value10} = useThrottleValue()
    
 
   return (
@@ -74,6 +76,12 @@ function App() {
     <p>Debounced:</p>
     <h1>Debounced: {data}</h1>
     <input type="text" onChange={throttledValue} />
+    </>
+    <>
+    <br />
+    <p>Throttle</p>
+    <h1>{value10}</h1>
+    <input type="text" onChange={throttled} />
     </>
     <>
     
